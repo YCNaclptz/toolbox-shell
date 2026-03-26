@@ -30,7 +30,7 @@ export default defineConfig({
         swearJar: {
           type: 'module',
           name: 'swearJar',
-          entry: 'http://localhost:5174/remoteEntry.js',
+          entry: process.env.VITE_REMOTE_ENTRY_URL || 'http://localhost:5174/remoteEntry.js',
         },
       },
       // TODO: 轉 TypeScript 後啟用 dts 型別提示功能
