@@ -91,7 +91,7 @@ async function handleSubmit() {
   padding: 2.5rem 2rem;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 4px 24px rgba(61, 46, 34, 0.08);
+  box-shadow: 0 4px 24px var(--color-shadow);
 
   h2 {
     margin: 0 0 0.5rem;
@@ -106,7 +106,7 @@ async function handleSubmit() {
   font-size: 0.88rem;
   margin-bottom: 1.2rem;
   padding: 0.6rem 0.8rem;
-  background: rgba(192, 57, 43, 0.06);
+  background: var(--color-danger-bg, rgba(192, 57, 43, 0.06));
   border-radius: 8px;
 }
 
@@ -134,7 +134,7 @@ async function handleSubmit() {
     &:focus {
       outline: none;
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.12);
+      box-shadow: 0 0 0 3px var(--color-focus-ring);
     }
   }
 }
@@ -145,7 +145,7 @@ async function handleSubmit() {
 }
 
 .success {
-  color: #27ae60;
+  color: var(--color-success);
   font-size: 0.85rem;
 }
 

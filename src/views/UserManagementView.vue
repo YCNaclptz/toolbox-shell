@@ -156,11 +156,11 @@ onMounted(loadUsers)
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 1px 4px rgba(61, 46, 34, 0.05);
+  box-shadow: 0 1px 4px var(--color-shadow);
   transition: box-shadow 0.2s;
 
   &:hover {
-    box-shadow: 0 2px 8px rgba(61, 46, 34, 0.1);
+    box-shadow: 0 2px 8px var(--color-shadow-hover);
   }
 }
 
@@ -194,7 +194,7 @@ onMounted(loadUsers)
 }
 
 .role-admin {
-  background: rgba(166, 124, 82, 0.12);
+  background: var(--color-focus-ring);
   color: var(--color-primary);
 }
 
@@ -207,14 +207,14 @@ onMounted(loadUsers)
   font-size: 0.75rem;
   padding: 0.15rem 0.5rem;
   border-radius: 10px;
-  background: rgba(192, 57, 43, 0.08);
+  background: var(--color-danger-bg, rgba(192, 57, 43, 0.08));
   color: var(--color-danger);
 }
 
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(61, 46, 34, 0.4);
+  background: var(--color-overlay);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,7 +229,7 @@ onMounted(loadUsers)
   padding: 1.8rem;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 8px 32px rgba(61, 46, 34, 0.15);
+  box-shadow: 0 8px 32px var(--color-shadow-hover);
 
   h3 {
     margin: 0 0 1.2rem;
@@ -262,7 +262,7 @@ onMounted(loadUsers)
     &:focus {
       outline: none;
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.12);
+      box-shadow: 0 0 0 3px var(--color-focus-ring);
     }
   }
 }
@@ -288,7 +288,7 @@ onMounted(loadUsers)
 
   &.active {
     background: var(--color-primary);
-    color: #fff;
+    color: var(--color-primary-foreground);
     border-color: var(--color-primary);
   }
 }

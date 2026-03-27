@@ -60,7 +60,7 @@ async function handleLogin() {
   padding: 2.5rem 2rem;
   width: 100%;
   max-width: 380px;
-  box-shadow: 0 4px 24px rgba(61, 46, 34, 0.08);
+  box-shadow: 0 4px 24px var(--color-shadow);
   text-align: center;
 
   h1 {
@@ -102,7 +102,7 @@ async function handleLogin() {
     &:focus {
       outline: none;
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.12);
+      box-shadow: 0 0 0 3px var(--color-focus-ring);
     }
   }
 }

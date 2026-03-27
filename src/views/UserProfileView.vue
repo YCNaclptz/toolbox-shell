@@ -234,7 +234,7 @@ async function handleRemoveAvatar() {
   padding: 2.5rem 2rem;
   width: 100%;
   max-width: 480px;
-  box-shadow: 0 4px 24px rgba(61, 46, 34, 0.08);
+  box-shadow: 0 4px 24px var(--color-shadow);
 
   h2 {
     margin: 0 0 1.5rem;
@@ -273,7 +273,7 @@ async function handleRemoveAvatar() {
 
   &:hover, &.drag-over {
     border-color: var(--color-primary);
-    background: rgba(166, 124, 82, 0.04);
+    background: var(--color-focus-ring);
   }
 }
 
@@ -286,7 +286,7 @@ async function handleRemoveAvatar() {
   align-items: center;
   justify-content: center;
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-primary-foreground);
   font-weight: 700;
   font-size: 2rem;
   flex-shrink: 0;
@@ -338,7 +338,7 @@ async function handleRemoveAvatar() {
     &:focus {
       outline: none;
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.12);
+      box-shadow: 0 0 0 3px var(--color-focus-ring);
     }
   }
 }
@@ -379,7 +379,7 @@ async function handleRemoveAvatar() {
 }
 
 .success {
-  color: #27ae60;
+  color: var(--color-success);
   font-size: 0.85rem;
 }
 

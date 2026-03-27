@@ -9,6 +9,13 @@
   --color-border-light: #ede6dc;
   --color-accent: #c9a87c;
   --color-danger: #c0392b;
+  --color-success: #27ae60;
+  --color-success-bg: rgba(39, 174, 96, 0.08);
+  --color-shadow: rgba(61, 46, 34, 0.08);
+  --color-shadow-hover: rgba(61, 46, 34, 0.15);
+  --color-overlay: rgba(61, 46, 34, 0.4);
+  --color-focus-ring: rgba(166, 124, 82, 0.12);
+  --color-primary-foreground: #fff;
 
   font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', sans-serif;
   line-height: 1.6;
@@ -39,7 +46,7 @@ body { margin: 0; min-width: 320px; }
 
   &-primary {
     background: var(--color-primary);
-    color: #fff;
+    color: var(--color-primary-foreground);
 
     &:hover:not(:disabled) {
       background: var(--color-primary-hover);
@@ -103,14 +110,22 @@ a {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M23 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #2c2420;
-    --color-card: #3a302a;
-    --color-text: #f5ebe0;
-    --color-muted: #b5a898;
-    --color-border: #544840;
-    --color-border-light: #4a3f38;
-    --color-accent: #c9a87c;
-  }
+.dark {
+  --color-primary: #c9a87c;
+  --color-primary-hover: #b5956a;
+  --color-bg: #2c2420;
+  --color-card: #3a302a;
+  --color-text: #f5ebe0;
+  --color-muted: #b5a898;
+  --color-border: #544840;
+  --color-border-light: #4a3f38;
+  --color-accent: #c9a87c;
+  --color-danger: #e74c3c;
+  --color-success: #2ecc71;
+  --color-success-bg: rgba(46, 204, 113, 0.12);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-shadow-hover: rgba(0, 0, 0, 0.4);
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-focus-ring: rgba(201, 168, 124, 0.2);
+  --color-primary-foreground: #fff;
 }

@@ -85,7 +85,7 @@ function navigateToApp(app: AppInfo) {
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(61, 46, 34, 0.1);
+    box-shadow: 0 8px 20px var(--color-shadow-hover);
     border-color: var(--color-primary);
   }
 }

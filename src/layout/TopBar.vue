@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAuthStore } from '../stores/auth'
 import { useRoute, useRouter } from 'vue-router'
+import { useDarkMode } from '../composables/useDarkMode'
 import {
   DropdownMenuRoot,
   DropdownMenuTrigger,
@@ -14,6 +15,7 @@ import {
 const auth = useAuthStore()
 const route = useRoute()
 const router = useRouter()
+const { isDark, toggle } = useDarkMode()
 
 const roleLabel = (role: string) => role === 'Admin' ? '管理員' : '使用者'
 
@@ -31,6 +33,25 @@ function getInitials(name: string) {
       </div>
       
       <div class="top-bar-right">
+        <button class="theme-toggle" :aria-label="isDark ? '切換至淺色模式' : '切換至深色模式'" @click="toggle">
+          <!-- Sun icon: shown in dark mode -->
+          <svg v-if="isDark" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <!-- Moon icon: shown in light mode -->
+          <svg v-else xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
         <DropdownMenuRoot>
           <DropdownMenuTrigger class="avatar-trigger" aria-label="使用者選單">
             <div class="avatar">
@@ -77,7 +98,7 @@ function getInitials(name: string) {
   background: var(--color-card);
   border-bottom: 1px solid var(--color-border);
   padding: 0.75rem 1.5rem;
-  box-shadow: 0 1px 4px rgba(61,46,34,0.04);
+  box-shadow: 0 1px 4px var(--color-shadow);
 }
 
 .top-bar-inner {
@@ -109,12 +130,12 @@ function getInitials(name: string) {
   transition: box-shadow 0.2s;
 
   &:hover, &[data-state="open"] {
-    box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.2);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
   }
 
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.3);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
   }
 }
 
@@ -127,7 +148,7 @@ function getInitials(name: string) {
   align-items: center;
   justify-content: center;
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-primary-foreground);
   font-weight: 600;
   font-size: 0.9rem;
   flex-shrink: 0;
@@ -141,6 +162,29 @@ function getInitials(name: string) {
 
 .avatar-fallback {
   line-height: 1;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    background: var(--color-focus-ring);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+  }
 }
 
 @media (max-width: 768px) {
@@ -162,7 +206,7 @@ function getInitials(name: string) {
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 0.4rem;
-  box-shadow: 0 8px 30px rgba(61, 46, 34, 0.12), 0 2px 8px rgba(61, 46, 34, 0.06);
+  box-shadow: 0 8px 30px var(--color-shadow-hover), 0 2px 8px var(--color-shadow);
   z-index: 1000;
   animation: dropdown-in 0.15s ease-out;
 }
@@ -214,14 +258,14 @@ function getInitials(name: string) {
   outline: none;
 
   &[data-highlighted] {
-    background: rgba(166, 124, 82, 0.08);
+    background: var(--color-focus-ring);
   }
 
   &--danger {
     color: var(--color-danger);
 
     &[data-highlighted] {
-      background: rgba(192, 57, 43, 0.06);
+      background: var(--color-danger-bg, rgba(192, 57, 43, 0.06));
     }
   }
 }
